@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro" >
+
+  <!-- Main cubesat link -->
+  <xacro:macro name="cubesat_base_macro">
+    <link name="base_link">
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <!-- <mesh filename="package://docking/meshes/cubesat/CubesatSTL.stl"/> -->
+          <box>
+            <size>10 10 10</size>
+          </box>
+          <!-- <mesh>
+            <uri>model://earth/meshes/earth.dae</uri>
+            <scale>100 100 100</scale>
+          </mesh> -->
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <!-- <mesh filename="package://docking/meshes/cubesat/CubesatSTL.stl"/> -->
+          <!-- <mesh>
+            <uri>model://earth/meshes/earth.dae</uri>
+            <scale>100 100 100</scale>
+          </mesh> -->
+          <box>
+            <size>10 10 10</size>
+          </box>
+        </geometry>
+      </collision>
+
+    </link>
+    
+  </xacro:macro>
+</robot>

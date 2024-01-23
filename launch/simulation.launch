@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find docking)/worlds"/>
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find docking)/worlds/models"/>
+  <env name="GAZEBO_PLUGIN_PATH" value="${GAZEBO_PLUGIN_PATH}:$(find docking)"/>
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find docking)/worlds/orbit_world/orbit_world.world"/>
+  </include> 
+
+  <!-- <node name="pcl_to_array" pkg="docking" type="pcl_to_array.py" output="screen" respawn="true" /> -->
+
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find docking)/urdf/cubesat.urdf.xacro id:=1" />
+
+</launch>

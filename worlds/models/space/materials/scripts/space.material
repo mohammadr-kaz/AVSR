@@ -1,0 +1,16 @@
+material space
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture space.jpg
+				filtering anistropic
+				max_anisotropy 16
+				scale 0.5 0.5
+			}
+		}
+	}
+}

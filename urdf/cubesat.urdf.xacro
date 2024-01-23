@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+
+<robot name="cubesat_full" xmlns:xacro="http://wiki.ros.org/xacro" >
+
+    <xacro:property name="ID" value="$(arg id)" />
+    <xacro:property name="robot_name" value="cubesat_$(arg id)" />
+
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+
+    <!-- Included URDF Files -->
+
+    <!-- Base airframe -->
+    <xacro:include filename="$(find docking)/urdf/cubesat_base.urdf.xacro"/>
+    <!-- <cubesat_base_macro/> -->
+    <link name="base_link">
+
+      <inertial>
+	      <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="1.477" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.01152" ixy="0.0" ixz="0.0" iyy="0.01152" iyz="0.0" izz="0.0218" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://docking/meshes/cubesat/cubesat.dae"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://docking/meshes/cubesat/cubesat.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+</robot>

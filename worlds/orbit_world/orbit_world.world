@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0 0 0 1</background>
+      <shadows>0</shadows>
+      <grid>false</grid>
+    </scene>
+    <include>
+      <uri>model://sun1</uri>
+    </include>
+
+    <plugin name="earth_orbit" filename="libearth_orbit.so"/>
+
+    <include>
+      <uri>model://earth</uri>
+      <name>earth</name>
+      <pose>0 0 180 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://cubesat</uri>
+      <name>cubesat</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://cubesat1</uri>
+      <name>cubesat1</name>
+      <pose>-10 2 0 0 0 0</pose>
+    </include>
+
+
+    <physics name='default_physics' default='0' type='ode'>
+      <gravity>0 0 0</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>10</iters>
+          <sor>1.3</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+      <magnetic_field>6.0e-6 2.3e-5 -4.2e-5</magnetic_field>
+    </physics>
+
+    <gui>
+      <camera name="user_camera">
+        <pose>5 -15 -25 0 -0.8 2</pose>
+        <!-- <pose>5 -15 -25 0 -0.8 2</pose> -->
+      </camera>
+    </gui>
+
+  </world>
+</sdf>
